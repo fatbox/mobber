@@ -1,0 +1,24 @@
+mobber
+======
+
+The FatBox Browsermob Simulator
+Copyright (c) 2012 - FatBox Inc.
+
+This exposes all the common logic for interacting with browsermob
+
+It's basic use is to wrap transactions & steps:
+Simulator.transaction(function(sim) {
+     // set the user agent
+     sim.set_user_agent("...");
+
+     // do a step
+     sim.step('my_step', function() {
+         // ... do your stuff ...
+         sim.log("Log a message");
+
+         // simulate user think time with a MAX of 10 seconds
+         // it will randomly alter the agressiveness of your
+         // users to provide a more even mix of load
+         sim.think(10);
+     });
+});
